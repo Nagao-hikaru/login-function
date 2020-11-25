@@ -49,6 +49,17 @@
 ![スクリーンショット 2020-11-25 10 08 40](https://user-images.githubusercontent.com/68269509/100169286-72f68580-2f06-11eb-9acf-7817592be8fc.png)
 
 
+<br>
+<br>
+
+## 画面遷移図
+
+<br>
+
+
+![スクリーンショット 2020-11-25 11 02 35](https://user-images.githubusercontent.com/68269509/100173404-c9b38d80-2f0d-11eb-9f02-786dd139c7a0.png)
+
+
 
 
 
