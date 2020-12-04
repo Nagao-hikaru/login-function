@@ -38,6 +38,11 @@ if (!isset($errors)) {
     $members = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // var_dump($members);
+    // $user_show = htmlspecialchars($members['id']);
+
+    // var_dump($user_show);
+
+
 
 //     function escape1($str)
 // {
@@ -93,7 +98,14 @@ if (!isset($errors)) {
           ID
         </h3>
         <div>
-          <?= $value['id'] ?>: 名前：<?= $value['name'] ?>: email: <?= $value['email'] ?>
+        <? $user_show = $value['id'] ?>
+        <? var_dump($user_show) ?>
+          <? echo '<a href="user_detail.php?id=.$user_show."> 詳細画面 </a>' ?> 
+          <form action="user_detail.php" method="get">
+            <input type="hidden" name="id" value="<?= $user_show;?>">
+            <input type="submit" value="詳細画面">
+          </form>
+          名前： <? echo $value['name'] ?>
         </div>
       </div>
       <br>
@@ -101,6 +113,8 @@ if (!isset($errors)) {
       <a href="welcome.php">検索画面に戻る</a>
   <?php endif ; ?>
   <br>
+  <div>
+  </div>
   
 </body>
 </html>

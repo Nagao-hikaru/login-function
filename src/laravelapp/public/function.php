@@ -32,13 +32,11 @@ function redirect_to_welcome() {
 
 // ログインの確認
 function check_user($email, $password, $pdo) {
-  //プレースホルダで SQL 作成
   $sql = "SELECT * FROM users WHERE email = :email;";
   $stmt = $pdo->prepare($sql);
   $params = array(':email' => $email);
   $stmt->execute($params);
   $member = $stmt->fetch(PDO::FETCH_ASSOC);
-  // FETCH_ASSOCは連想配列として返す
 
   if (password_verify($_POST['password'], $member['password'])) {
     $_SESSION['email'] = $email;
@@ -63,7 +61,6 @@ function register_token($email, $token, $pdo) {
   $id = $member['id'];
 
   $sql = "INSERT INTO auto_login ( email, token, registrated_time, user_id) VALUES (?,?,?,?);";
-  // 現在日時を取得
   $date = date('Y-m-d H:i:s');
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(1, $email, PDO::PARAM_STR);
@@ -123,6 +120,8 @@ function session_information($pdo, $email) {
     setCookie('cookie_token', "", time()-60);
     $_SESSION['error'] = 'セッション情報を認証できませんでした。';
     redirect_to_login();
+  } else {
+    return true;
   }
 }
 
@@ -189,6 +188,25 @@ function expire_token($pdo) {
   $sql = 'DELETE FROM auto_login WHERE registrated_time < DATE_SUB(CURDATE(), INTERVAL 1 DAY);';
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
+}
+
+
+
+
+// ユーザー詳細関連
+
+// 詳細ユーザーの取得
+function user_detail($pdo, $id) {
+  global $detail;
+  $sql = "SELECT * FROM users WHERE id = :id";
+  $stmt = $pdo->prepare($sql);
+  // $stmt->bindValue(1, $id, PDO::PARAM_STR);
+  $params = array(':id' => $id);
+  $stmt->execute($params);
+  $detail = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  // var_dump($detail);
+
 }
 
 
