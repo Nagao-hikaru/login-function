@@ -100,7 +100,6 @@ if (!isset($errors)) {
         <div>
         <? $user_show = $value['id'] ?>
         <? var_dump($user_show) ?>
-          <? echo '<a href="user_detail.php?id=.$user_show."> 詳細画面 </a>' ?> 
           <form action="user_detail.php" method="get">
             <input type="hidden" name="id" value="<?= $user_show;?>">
             <input type="submit" value="詳細画面">
