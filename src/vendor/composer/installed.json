@@ -315,5 +315,6 @@
             "install-path": "../doctrine/event-manager"
         }
     ],
-    "dev": true
+    "dev": true,
+    "dev-package-names": []
 }
