@@ -29,8 +29,8 @@ services:
    # 起動時のコマンド
    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
    # ディレクトリ同期。設定ファイルとMySQLのデータが保存される場所を同期している。コンテナは基本的に起動時に変更されてもコンテナ自体が止まるとデータが消えてしまうため、保存しておきたいものはホストマシンと同期しておく必要がある。
-   volumes:
-     - ./docker/db/data:/var/lib/mysql
-     - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+  #  volumes:
+  #    - ./docker/db/data:/var/lib/mysql
+  #    - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
    ports:
      - 3306:3306

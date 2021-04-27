@@ -99,19 +99,15 @@ if (!isset($errors)) {
         </h3>
         <div>
         <? $user_show = $value['id'] ?>
-        <? var_dump($user_show) ?>
+        <? var_dump($user_show); ?>
           <form action="user_detail.php" method="get">
             <input type="hidden" name="id" value="<?= $user_show;?>">
             <input type="submit" value="詳細画面">
           </form>
-          名前： <? echo $value['name'] ?>
+          名前： <? echo $value['name']; ?>
         </div>
       </div>
       <br>
-      <?php endforeach; ?>
-      <a href="welcome.php">検索画面に戻る</a>
-  <?php endif ; ?>
-  <br>
   <div>
   </div>
   
