@@ -15,3 +15,5 @@ $instance->loveAndPeace();
 echo '<br>';
 
 $instance->greeting();
+
+てんぷれー
